@@ -1,0 +1,59 @@
+{
+  "name": "catlua",
+  "displayName": "CatLua",
+  "description": "Language support and linter for CatWeb v2.16+",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Linters",
+    "Snippets"
+  ],
+  "main": "./extension.js",
+  "publisher": "sytesn",
+  "activationEvents": [],
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "CatLua",
+      "properties": {
+        "catlua.compilerPath": {
+          "type": "string",
+          "default": "E:\\catlua-new\\main.py",
+          "description": "Absolute path to the main.py compiler file"
+        }
+      }
+    },
+    "languages": [
+      {
+        "id": "catlua",
+        "aliases": [
+          "CatLua",
+          "catlua"
+        ],
+        "extensions": [
+          ".catlua"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "catlua",
+        "scopeName": "source.catlua",
+        "path": "./catlua.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "catlua",
+        "path": "./snippets.json"
+      }
+    ]
+  },
+  "devDependencies": {
+    "vscode": "^1.1.37"
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "OnWebsiteLoaded": {
+    "prefix": "OnWebsiteLoaded",
+    "body": [
+      "OnWebsiteLoaded",
+      "\t$0",
+      "end"
+    ],
+    "description": "Triggered when the website is loaded"
+  },
+  "MouseButton1Click": {
+    "prefix": "MouseButton1Click",
+    "body": [
+      "${1:button}.MouseButton1Click",
+      "\t$0",
+      "end"
+    ],
+    "description": "Triggered when a button is clicked"
+  },
+  "OnMessageReceived": {
+    "prefix": "OnMessageReceived",
+    "body": [
+      "OnMessageReceived",
+      "\t-- exposes: l!messageContent, l!messageSenderId, l!messageSenderName",
+      "\t$0",
+      "end"
+    ],
+    "description": "Triggered when a page or site broadcast is received"
+  },
+  "InputBegan": {
+    "prefix": "InputBegan",
+    "body": [
+      "UserInputService.InputBegan(${1:KeyCode})",
+      "\t$0",
+      "end"
+    ],
+    "description": "Triggered when a specific key is pressed"
+  },
+  "Function definition": {
+    "prefix": "function",
+    "body": [
+      "function ${1:name}(${2:args})",
+      "\t$0",
+      "end"
+    ],
+    "description": "Define a reusable function"
+  },
+  "If statement": {
+    "prefix": "if",
+    "body": [
+      "if ${1:condition} then",
+      "\t$0",
+      "end"
+    ],
+    "description": "Standard if block"
+  },
+  "If/else chain": {
+    "prefix": "ifelse",
+    "body": [
+      "if ${1:condition} then",
+      "\t$2",
+      "else",
+      "\t$0",
+      "end"
+    ],
+    "description": "If block with fallback"
+  },
+  "Repeat loop": {
+    "prefix": "repeat",
+    "body": [
+      "repeat(${1:count})",
+      "\t$0",
+      "end"
+    ],
+    "description": "Loop a specific number of times"
+  },
+  "Repeat forever": {
+    "prefix": "forever",
+    "body": [
+      "repeat forever",
+      "\t$0",
+      "end"
+    ],
+    "description": "Infinite loop"
+  },
+  "For": {
+    "prefix": "forp",
+    "body": [
+      "for ${1:i}, ${2:v} in pairs(${3:table}) do",
+      "\t$0",
+      "end"
+    ],
+    "description": "Iterate through a table or array"
+  }
+}

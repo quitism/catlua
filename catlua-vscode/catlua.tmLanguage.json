@@ -1,0 +1,74 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "CatLua",
+  "scopeName": "source.catlua",
+  "patterns": [
+    {
+      "match": "--[@#]\\s*([^\\n]*)",
+      "captures": {
+          "0": { "name": "keyword.control.directive.catlua" },
+          "1": { "name": "entity.name.function.directive.catlua" }
+      }
+    },
+    {
+      "name": "comment.line.double-dash.catlua",
+      "match": "--.*$"
+    },
+    {
+      "name": "string.quoted.double.catlua",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [{"match": "\\\\.", "name": "constant.character.escape.catlua"}]
+    },
+    {
+      "name": "string.interpolated.catlua",
+      "begin": "`",
+      "end": "`",
+      "patterns": [
+        {
+          "name": "variable.parameter.catlua",
+          "match": "\\{[^}]+\\}"
+        }
+      ]
+    },
+    {
+      "name": "keyword.control.catlua",
+      "match": "\\b(if|then|else|elseif|end|while|do|for|in|ipairs|pairs|repeat|until|function|local|return|require)\\b"
+    },
+    {
+      "name": "keyword.other.catlua",
+      "match": "\\b(local|global|object|function|delete|bg|background|protected|contains)\\b"
+    },
+    {
+      "name": "keyword.operator.logical.catlua",
+      "match": "\\b(and|or|nor|xor|not)\\b"
+    },
+    {
+      "name": "entity.name.function.event.catlua",
+      "match": "\\b(OnWebsiteLoaded|OnMessageReceived|OnCrossSiteMessageReceived|MouseButton1Click|MouseButton2Click|MouseButton1Down|MouseButton1Up|MouseEnter|MouseLeave|InputBegan|FocusLost|GetPropertyChangedSignal|OnDonationPurchase)\\b"
+    },
+    {
+      "name": "support.class.catlua",
+      "match": "\\b(UserInputService|LocalPlayer|Camera)\\b"
+    },
+    {
+      "name": "support.function.builtin.catlua",
+      "match": "\\b(print|warn|error|wait|task\\.wait|math\\.[a-zA-Z_]+|string\\.[a-zA-Z_]+|table\\.[a-zA-Z_]+|cookie\\.[a-zA-Z_]+|clone|makeVisible|makeInvisible|tween|getChildren|findFirstChild|findFirstAncestor|findFirstDescendant|getDescendants|getObjectsAtPosition|setImage|setHeadshot|getAssetInfo|os\\.time|server\\.os\\.time|tick|formatLocalTime|formatUniversalTime|getUrl|getQuery|getTimezone|hexToRGB|hexToHSV|RGBToHex|HSVToHex|lerpColor|destroy|playAudio|playLoopedAudio|stopAllAudio|keyDown|leftMouseDown|middleMouseDown|rightMouseDown|redirect|page\\.broadcast|site\\.broadcast|crossSite\\.broadcast)\\b"
+    },
+    {
+      "name": "variable.language.scope.catlua",
+      "match": "\\b([lgo]!)[a-zA-Z_]\\w*\\b",
+      "captures": {
+        "1": { "name": "keyword.control.scope.catlua" }
+      }
+    },
+    {
+      "name": "constant.numeric.catlua",
+      "match": "\\b\\d+(\\.\\d+)?\\b"
+    },
+    {
+      "name": "constant.language.nil.catlua",
+      "match": "\\bnil\\b"
+    }
+  ]
+}
