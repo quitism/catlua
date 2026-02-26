@@ -5,7 +5,6 @@ catlua-vscode/package-lock.json
 interpreter/
 archive/
 catlua_scripts/
-libs/
 __pycache__/
 *.pyc
 *.cwobj
