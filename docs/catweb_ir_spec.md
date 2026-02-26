@@ -1,5 +1,5 @@
-# CatWeb IR (CWIR) ABI Specification
-> Intermediate representation for CatWeb compiler tooling. Targets CatWeb v2.15.0.3+
+# CatWeb IR (CWIR) Specification
+> Intermediate representation for CatWeb compiler tooling. Targets CatWeb v2.16+
 
 **Spec version:** 1.0
 
