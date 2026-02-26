@@ -1,4 +1,10 @@
+catlua-vscode/node_modules
+catlua-vscode/.vscode
+catlua-vscode/catlua-1.0.0.vsix
+catlua-vscode/package-lock.json
+interpreter/
+archive/
+catlua_scripts/
 __pycache__/
 *.pyc
-.vscode/
-.catlua-vscode/node_modules/
+*.cwobj

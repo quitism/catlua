@@ -48,19 +48,26 @@ class Optimizer:
             block = getattr(node, attr, None)
             if isinstance(block, list):
                 new_block = []
-                for stmt in block:
-                    # DCE LOGIC
+                for i, stmt in enumerate(block):
+                    # DCE
                     if isinstance(stmt, AssignStmt) and stmt.scope == "local":
                         target = stmt.targets[0]
                         if isinstance(target, VarRef):
                             reads = self.read_counts.get(target.name, 0)
-                            # If it's never read, and the right side has no side-effects (like a function call)
+                            # if it's never read, and the right side has no side-effects (like a function call)
                             if reads == 0 and not self.has_function_call(stmt.value):
-                                print(f"[Optimizer -O2] Eliminated dead variable '{target.name}' at line {stmt.line}")
+                                print(f"[optimizer (-O2)] eliminated dead variable '{target.name}' at line {stmt.line}")
                                 continue # it gets deleted
                     
                     self.eliminate_dead_code(stmt)
                     new_block.append(stmt)
+
+                    if isinstance(stmt, ReturnStmt) or isinstance(stmt, BreakStmt):
+                        # if we return, anything after is dead code
+                        if i + 1 < len(block):
+                            dropped = len(block) - (i + 1)
+                            print(f"[optimizer (-O2)] eliminated {dropped} unreachable statement(s) after return statement at line {stmt.line}")
+                        break
                     
                 setattr(node, attr, new_block)
 

@@ -21,7 +21,7 @@ class SemanticAnalyzer:
     }
 
     LIBRARIES = {
-        "string.", "math.", "table.", "os.", "cookie", "server."
+        "string.", "math.", "table.", "os.", "cookie.", "server."
     }
     def __init__(self, ast, opt_level=1):
         self.ast = ast

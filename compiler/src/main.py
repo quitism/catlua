@@ -81,7 +81,7 @@ def main():
                     if is_linting:
                         add_diagnostic(err, 1)
                     else:
-                        print(f"{Colors.RED}[ERROR] Syntax in {os.path.basename(filepath)}: {err}{Colors.RESET}")
+                        print(f"{Colors.RED}[ERROR] syntax in {os.path.basename(filepath)}: {err}{Colors.RESET}")
                 
                 if not is_linting:
                     sys.exit(1)
@@ -92,7 +92,7 @@ def main():
                 print(json.dumps(lint_diagnostics))
                 sys.exit(0)
             else:
-                print(f"{Colors.RED}[ERROR] Syntax in {os.path.basename(filepath)}: {e}{Colors.RESET}")
+                print(f"{Colors.RED}[ERROR] syntax in {os.path.basename(filepath)}: {e}{Colors.RESET}")
                 sys.exit(1)
                 
         final_shards = []
@@ -107,7 +107,7 @@ def main():
                     
                 if not os.path.exists(req_path):
                     if is_linting: continue
-                    print(f"{Colors.RED}[ERROR] Linker: Could not find required file '{req}'{Colors.RESET}")
+                    print(f"{Colors.RED}[ERROR] linker: could not find required file '{req}'{Colors.RESET}")
                     sys.exit(1)
                     
                 final_shards.extend(compile_file(req_path, parsed_files))
@@ -134,7 +134,7 @@ def main():
     # DCE
     if opt_level >= 2:
         opt = Optimizer(ast)
-        # Only pass Colors if we aren't linting (keeps stdout clean for VS Code)
+        # only pass Colors if we aren't linting (keeps stdout clean for VS Code)
         opt.optimize(Colors if not is_linting else None)
     
     # linter json output
@@ -182,7 +182,7 @@ def main():
                 f.write(final_json)
             print(f"\n{Colors.BOLD}{Colors.GREEN}compiled {filename} -> {out_file} successfully{Colors.RESET}")
         except EmitError as e:
-            print(f"\n{Colors.RED}JSON Emitter Error: {e}{Colors.RESET}")
+            print(f"\n{Colors.RED}json emitter error: {e}{Colors.RESET}")
             sys.exit(1)
     else:
         cwobj_file = out_file.replace(".json", ".cwobj")
