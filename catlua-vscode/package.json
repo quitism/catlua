@@ -2,7 +2,9 @@
   "name": "catlua",
   "displayName": "CatLua",
   "description": "Language support and linter for CatWeb v2.16+",
-  "version": "1.0.0",
+  "repository": {},
+  "license": "MIT",
+  "version": "1.0.1",
   "engines": {
     "vscode": "^1.80.0"
   },
@@ -21,7 +23,7 @@
       "properties": {
         "catlua.compilerPath": {
           "type": "string",
-          "default": "E:\\catlua-new\\main.py",
+          "default": "E:\\catlua\\main.py",
           "description": "Absolute path to the main.py compiler file"
         }
       }
